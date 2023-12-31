@@ -1,11 +1,14 @@
 import { getMealBySlug } from "@/lib/meals";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import classes from "./page.module.css";
 
 export default function MealDetail({ params }) {
   const meal = getMealBySlug(params.slug);
+  if (!meal) {
+    notFound();
+  }
   meal.instructions = meal.instructions.replace(/\n/g, "<br />");
-  console.log("meal.image", typeof meal.image);
   return (
     <>
       <header className={classes.header}>
