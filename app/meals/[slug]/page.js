@@ -3,6 +3,17 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import classes from "./page.module.css";
 
+export async function generateMetadata({ params }) {
+  const meal = getMealBySlug(params.slug);
+  if (!meal) {
+    notFound();
+  }
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+}
+
 export default function MealDetail({ params }) {
   const meal = getMealBySlug(params.slug);
   if (!meal) {

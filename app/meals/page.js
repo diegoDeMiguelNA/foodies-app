@@ -5,6 +5,11 @@ import { Suspense } from "react";
 import MealsLoadingPage from "./loading-out";
 import classes from "./page.module.css";
 
+export const metadata = {
+  title: "All Meals",
+  description: "Brpwse all delicious meals shared by our community.",
+};
+
 const Meals = async () => {
   const meals = await getAllMeals();
   return <MealsGrid meals={meals} />;
