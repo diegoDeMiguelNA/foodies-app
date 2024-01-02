@@ -13,7 +13,11 @@ export default function MealDetail({ params }) {
     <>
       <header className={classes.header}>
         <div className={classes.image}>
-          <Image src={meal.image} fill alt={meal.title} />
+          <Image
+            src={`https://foodies-app-nextjs.s3.eu-central-1.amazonaws.com/${meal.image}`}
+            fill
+            alt={meal.title}
+          />
         </div>
         <div className={classes.headerText}>
           <h1>{meal.title}</h1>
