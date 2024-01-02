@@ -5,7 +5,7 @@ export default function MealsFormSubmit() {
   const { pending } = useFormStatus();
 
   return (
-    <button disable={pending}>
+    <button disabled={pending}>
       {pending ? "Submitting..." : "Share Meal"}
     </button>
   );
